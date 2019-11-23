@@ -9,6 +9,12 @@ ModelImporter:
   - first:
       74: 2821398642378026812
     second: Jumping_Jacks
+  - first:
+      74: 4756991484812673823
+    second: m_ca01_skeleton_001_mixamo_com_Layer0
+  - first:
+      74: 3923652592566590768
+    second: m_ca01_skeleton_001_m_ca01_skeleton_Jumping_Jacks_m_ca01_skelet
   externalObjects: {}
   materials:
     importMaterials: 1
