@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     // If 1, P1 lost most recently, if 2, P2 lost most recently
     private int MostRecentLoser = 0;
 
+    // Which round are we on? Starts at 1 by default
+    private int currentRoundNum =1;
+
     /// <summary>
     /// All usable moves selectable by both players
     /// </summary>
@@ -42,9 +45,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private List<bool> P2CurRoundMoves;
 
-    private int MainMenuSceneIdx = 1;
-    private int SelectScreenIdx = 2;
-    private int FightSceneIdx = 3;
+    private int MainMenuSceneIdx = 0;
+    private int SelectScreenIdx = 1;
+    private int FightSceneIdx = 2;
 
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
@@ -70,7 +73,8 @@ public class GameManager : MonoBehaviour
     public static void EnterFightScene()
     {
         Debug.Log("FIRST FIGHT");
-        SceneManager.LoadScene("FightSceneTest");
+        // current round num already set from start to 1
+        SceneManager.LoadScene(instance.FightSceneIdx);
     }
 
     /// <summary>
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
     public static void EnterMoveSelectScreen()
     {
         Debug.Log("FIRST FIGHT");
-        SceneManager.LoadScene("SelectScreenTest");
+        SceneManager.LoadScene(instance.SelectScreenIdx);
     }
 
     /// <summary>
@@ -90,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         UnpauseGame();
         Debug.Log("IN SELECTION MENU BETWEEN FIGHTS");
-        SceneManager.LoadScene("SelectScreenTest");
+        SceneManager.LoadScene(instance.SelectScreenIdx);
     }
 
     /// <summary>
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
     {
         UnpauseGame();
         //TODO: reset player health and timer
-        SceneManager.LoadScene("FightSceneTest");
+        SceneManager.LoadScene(instance.FightSceneIdx);
         Debug.Log("RESTARTING FIGHT");
     }
 
@@ -111,18 +115,18 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("YOU GAVE UP ON THE BOUT");
         ResetWinStats();
-        SceneManager.LoadScene("SelectScreenTest");
+        SceneManager.LoadScene(instance.SelectScreenIdx);
     }
 
 
     /// <summary>
     /// Called when a player loses a round, or when time runs out.
     /// </summary>
-    public static void RoundOver()
+    public static void RoundOver(int winner)
     {
         Debug.Log("ROUND OVER");
         PauseGame();
-        int winner = UpdateWinCounts();
+        UpdateWinCounts(winner);
         UpdateMostRecentLoser(winner);
 
         // if someone won 3 times, finish bout
@@ -134,8 +138,17 @@ public class GameManager : MonoBehaviour
         else
         {
             instance.OnRoundOver.Invoke();
-            SceneManager.LoadScene("FightSceneTest");
+            instance.currentRoundNum++;
+            SceneManager.LoadScene(instance.SelectScreenIdx);
         }
+    }
+
+    /// <summary>
+    /// Used within a bout between rounds to go to the next round
+    /// </summary>
+    public static void  NextRoundStart()
+    {
+        SceneManager.LoadScene(instance.FightSceneIdx);
     }
 
     /// <summary>
@@ -143,10 +156,8 @@ public class GameManager : MonoBehaviour
     /// sets the winner of this round in the list.
     /// </summary>
     /// <returns>The int of whoever won, P1 = 1, P2 = 2.</returns>
-    private static int UpdateWinCounts()
+    private static int UpdateWinCounts(int winningPlayer)
     {
-        // determine winner based on KO or time over (more health wins in that case)
-        int winningPlayer = UnityEngine.Random.Range(1, 3);
 
         if (winningPlayer == 1)
         {
@@ -216,17 +227,28 @@ public class GameManager : MonoBehaviour
 
         ResetWinStats();
 
-        SceneManager.LoadScene("SelectScreenTest");
+        SceneManager.LoadScene(instance.SelectScreenIdx);
     }
 
     /// <summary>
-    /// Called when leaving a bout, either through quitting or ending all rounds
+    /// Called when leaving a bout, either through quitting or finishing all rounds
     /// </summary>
     private static void ResetWinStats()
     {
         instance.MostRecentLoser = 0;
         instance.P1WinCount = 0;
         instance.P2WinCount = 0;
+        instance.currentRoundNum = 1;
+    }
+
+    /// <summary>
+    /// Returns which round we are on. Initialized to 1. 
+    /// Increases by 1 each time a round is over (but not on bout over)
+    /// </summary>
+    /// <returns>The current round number.</returns>
+    public static int GetCurRoundNum()
+    {
+        return instance.currentRoundNum;
     }
 
     public static void PauseGame()

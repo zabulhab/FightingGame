@@ -11,7 +11,8 @@ public class Health : MonoBehaviour
     // Used to identify who this script is attached to
     public bool IsPlayer1 = true;
 
-    public int StartingHealth;
+    // TODO: make this 100 default later but keep empty for now for testing purposes
+    public int StartingHealth; 
 
     private int CurrentHealth;
 
@@ -21,26 +22,39 @@ public class Health : MonoBehaviour
     [SerializeField]
     private HealthBarUIUpdate healthBarUIUpdater;
 
+    private void Start()
+    {
+        CurrentHealth = StartingHealth;
+    }
+
     /// <summary>
     /// Hurts this player. Calls GameManager's RoundOver method
     /// </summary>
     /// <param name="Amount">Amount.</param>
-    private void TakeDamage(int Amount)
+    public void TakeDamage(int Amount)
     {
+        Debug.Log("OW");
         if (IsCorrectlyBlocking)
         {
             CurrentHealth -= Mathf.RoundToInt(Amount * .8f);
-            healthBarUIUpdater.UpdateHealthBar(CurrentHealth);
+            healthBarUIUpdater.DepleteHealthBar(Amount);
         }
         else
         {
             CurrentHealth -= Amount;
-            healthBarUIUpdater.UpdateHealthBar(CurrentHealth);
+            healthBarUIUpdater.DepleteHealthBar(Amount);
         }
-
+        Debug.Log(CurrentHealth);
         if (CurrentHealth <= 0)
         {
-            GameManager.RoundOver();
+            if (IsPlayer1)
+            {
+                GameManager.RoundOver(2); // if p1 died, p2 wins
+            }
+            else
+            {
+                GameManager.RoundOver(1); // if p2 died, p1 wins
+            }
         }
     }
 }
