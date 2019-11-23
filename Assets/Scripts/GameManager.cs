@@ -7,7 +7,6 @@ using System;
 
 // Power ups happen between rounds, best 3/5
 // TODO: Add timer: 2 mins?
-// TODO: Player has a script storing if it won or lost
 
 public class GameManager : MonoBehaviour
 {
@@ -243,5 +242,4 @@ public class GameManager : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1f;
     }
-
 }
