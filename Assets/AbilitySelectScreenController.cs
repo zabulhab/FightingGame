@@ -6,8 +6,6 @@ using TMPro;
 
 public class AbilitySelectScreenController : MonoBehaviour
 {
-
-
     public TextMeshProUGUI selectionHeader;
     //TODO: Define all the possible moves.
     public GameObject[] masterArrayOfMoves = { };
@@ -16,7 +14,7 @@ public class AbilitySelectScreenController : MonoBehaviour
     public GameObject[] player1Slots;
     public GameObject[] player2Slots;
 
-    public int maxCapacity  = 4;
+    public int maxCapacity = 4;
 
     //Capacity starts at 1 for each player
     public int player1Capacity = 0;
@@ -48,26 +46,22 @@ public class AbilitySelectScreenController : MonoBehaviour
             if (!player1Confirmed)
             {
                 selectionHeader.text  = "Player 1: Select Your Abilities!";
-                //Hardcoded Blue value: 2A00FF
                 selectionHeader.color = Color.red;
             }
             else
             {
                 selectionHeader.text = "Player 2: Select Your Abilities!";
-                //Hardcoded Red value: FF1100
                 selectionHeader.color = Color.blue;
             }
         }
         else if(previousWinner == 0)
         {
             selectionHeader.text = "Player 1: Select Your Abilities!";
-            //Hardcoded Blue value: 2A00FF
             selectionHeader.color = Color.red;
         }
         else if(previousWinner == 1)
         {
             selectionHeader.text = "Player 2: Select Your Abilities!";
-            //Hardcoded Red value: FF1100
             selectionHeader.color = Color.blue;
         }
 
