@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using static Moves;
+
 public class Player_Controller : MonoBehaviour
 {
     /* INSPECTOR */
