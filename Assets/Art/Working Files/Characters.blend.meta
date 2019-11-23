@@ -15,6 +15,18 @@ ModelImporter:
   - first:
       74: 3923652592566590768
     second: m_ca01_skeleton_001_m_ca01_skeleton_Jumping_Jacks_m_ca01_skelet
+  - first:
+      74: -7813635296899823279
+    second: Crouch
+  - first:
+      74: -1822350189675571596
+    second: Fighting_Stance
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: 2667949614841947897
+    second: Walk
   externalObjects: {}
   materials:
     importMaterials: 1
