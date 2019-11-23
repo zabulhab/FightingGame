@@ -10,27 +10,28 @@ public class Player_Controller : MonoBehaviour
     public bool DEBUG = false;
     [Space(10)]
 
-    public float move_speed = 10f;
+    public float move_speed = 100f;
 
     /* PRIVATE */
 
-    private string combo_string;
-    private int move;
+    private Rigidbody self_rbody;
+    private string combo_string = "";
+    private int move = 0;
 
     /* USER FUNCTIONS */
 
     private void PollInput()
     {
         // Get movement input
-        if (Input.GetButton("Foward") && Input.GetButton("Back"))
+        if (Input.GetButton("Forward") && Input.GetButton("Back"))
         {
             move = 0;
         }
-        else if (Input.GetButton("Foward"))
+        else if (Input.GetButton("Forward"))
         {
             move = 1;
         }
-        else if (Input.GetButton("Foward"))
+        else if (Input.GetButton("Back"))
         {
             move = -1;
         }
@@ -72,15 +73,15 @@ public class Player_Controller : MonoBehaviour
 
     private void Movement()
     {
-
+        self_rbody.AddForce(new Vector3(move_speed * move, 0));
     }
 
     /* UNITY FUNCTIONS */
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
-        combo_string = "";
+        self_rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -88,7 +89,11 @@ public class Player_Controller : MonoBehaviour
     {
         if (DEBUG)
         {
+            Debug.Log("Combo string");
             Debug.Log(combo_string);
+
+            Debug.Log("Move");
+            Debug.Log(move);
         }
 
         // Get inputs
@@ -96,7 +101,5 @@ public class Player_Controller : MonoBehaviour
 
         // Move character
         Movement();
-
-
     }
 }
