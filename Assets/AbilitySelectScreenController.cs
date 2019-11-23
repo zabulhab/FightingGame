@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 
 public class AbilitySelectScreenController : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class AbilitySelectScreenController : MonoBehaviour
     public GameObject[] masterArrayOfMoves = { };
 
     //Define the slots avaliable for each player
-    public List<GameObject> player1slots = new List<GameObject>();
-    public List<GameObject> player2Slots = new List<GameObject>();
+    public GameObject[] player1slots;
+    public GameObject[] player2Slots;
 
     public int maxCapacity  = 4;
 
@@ -47,5 +48,18 @@ public class AbilitySelectScreenController : MonoBehaviour
         }
     }
 
-    public
+    public void fillSlot()
+    {
+        if (previousWinner == -1) return;
+
+        if (previousWinner == 1)
+        {
+            TextMeshProUGUI []prevWinnerText = player1slots[player1Capacity].GetComponentsInChildren<TextMeshProUGUI>();
+            prevWinnerText[0].text = "";
+        }
+        if (previousWinner == 2)
+        {
+
+        }
+    }
 }
