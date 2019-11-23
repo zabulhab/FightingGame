@@ -15,7 +15,24 @@ public class Player_Controller : MonoBehaviour
 
     /* PRIVATE */
 
+    private delegate void Combo_Delegate();
+
+    private class Combo
+    {
+        public Combo_Delegate combo_behavior;
+        public string combo_str;
+        public int combo_id;
+
+        public Combo(Combo_Delegate cb, string cs, int ci)
+        {
+            combo_behavior = cb;
+            combo_str = cs;
+            combo_id = ci;
+        }
+    }
+
     private Rigidbody self_rbody;
+    private List<Combo> valid_combos = new List<Combo>(); 
     private string combo_string = "";
     private int move = 0;
     private float last_key_pressed_time = 0;
@@ -91,21 +108,20 @@ public class Player_Controller : MonoBehaviour
     }
 
     // Returns if "combo_string" is a valid combo
-    private bool ValidCombo()
+    private Combo ValidCombo()
     {
-        // A combo is only valid if it exists and
-        // the player has access to it
-
-        return false;
+        // A combo is only valid if it exists in "valid_combos" list
+        return valid_combos.Find(x => x.combo_str == combo_string);
     }
 
     private void ExecuteCombo()
     {
         // Check combo_string:
         // If valid combo, execute the combo
-        if (ValidCombo())
+        Combo valid = ValidCombo();
+        if (valid != null)
         {
-
+            valid.combo_behavior();
         }
         // If invalid combo, check the last key,
         // if the last key is a non-lateral movement key, execute it
@@ -138,6 +154,15 @@ public class Player_Controller : MonoBehaviour
     private void Awake()
     {
         self_rbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        // Get valid combos from GameManager and store into local list
+        // TODO
+
+        /* Combos */
+        valid_combos.Add(new Combo(Combos.MoveOne, "<><", 0));
     }
 
     private void Update()
