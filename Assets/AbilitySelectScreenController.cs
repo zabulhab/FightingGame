@@ -6,6 +6,9 @@ using TMPro;
 
 public class AbilitySelectScreenController : MonoBehaviour
 {
+
+
+    public TextMeshProUGUI selectionHeader;
     //TODO: Define all the possible moves.
     public GameObject[] masterArrayOfMoves = { };
 
@@ -29,12 +32,46 @@ public class AbilitySelectScreenController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        //TODO get winner from game screen
+
         if(previousWinner != -1)
         {
             allocateSlot();
         }
     }
 
+    //On update, update the header depending on who should be selecting their abilities now. 
+    private void Update()
+    {
+        if (previousWinner == -1) {
+            if (!player1Confirmed)
+            {
+                selectionHeader.text  = "Player 1: Select Your Abilities!";
+                //Hardcoded Blue value: 2A00FF
+                selectionHeader.color = Color.red;
+            }
+            else
+            {
+                selectionHeader.text = "Player 2: Select Your Abilities!";
+                //Hardcoded Red value: FF1100
+                selectionHeader.color = Color.blue;
+            }
+        }
+        else if(previousWinner == 0)
+        {
+            selectionHeader.text = "Player 1: Select Your Abilities!";
+            //Hardcoded Blue value: 2A00FF
+            selectionHeader.color = Color.red;
+        }
+        else if(previousWinner == 1)
+        {
+            selectionHeader.text = "Player 2: Select Your Abilities!";
+            //Hardcoded Red value: FF1100
+            selectionHeader.color = Color.blue;
+        }
+
+    }
     //Give player an additional slot if they won a previous match. 
     public void allocateSlot()
     {
@@ -42,11 +79,13 @@ public class AbilitySelectScreenController : MonoBehaviour
 
         if(previousWinner == 1 && player1Capacity < maxCapacity)
         {
+            player1Confirmed = false;
             player1Capacity++;
             player1Slots[player1Capacity].SetActive(true);
         }
         if(previousWinner == 2 && player2Capacity < maxCapacity)
         {
+            player2Confirmed = false;
             player2Capacity++;
             player1Slots[player2Capacity].SetActive(true);
         }
