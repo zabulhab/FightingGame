@@ -15,6 +15,7 @@ public class Player_Controller : MonoBehaviour
 
     /* PRIVATE */
 
+    // Allows for combo behavior functions to be easily tied in with the other fields of the combo such as ID and combo strings
     private delegate void Combo_Delegate();
 
     private class Combo
@@ -38,6 +39,38 @@ public class Player_Controller : MonoBehaviour
     private float last_key_pressed_time = 0;
 
     /* USER FUNCTIONS */
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void Movement()
+    {
+        self_rbody.AddForce(new Vector3(move_speed * move * Time.fixedDeltaTime * 100, 0));
+    }
+
+    private void MoveJump()
+    {
+        Debug.Log("Jump");
+    }
+
+    private void MoveCrouch()
+    {
+        Debug.Log("Crouch");
+    }
+
+    private void MoveBlock()
+    {
+        Debug.Log("Block");
+    }
+
+    private void MovePunch()
+    {
+        Debug.Log("Punch");
+    }
+
+    private void MoveKick()
+    {
+        Debug.Log("Kick");
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void ComboKeyPressed()
     {
@@ -102,10 +135,6 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    private void Movement()
-    {
-        self_rbody.AddForce(new Vector3(move_speed * move * Time.fixedDeltaTime * 100, 0));
-    }
 
     // Returns if "combo_string" is a valid combo
     private Combo ValidCombo()
@@ -127,7 +156,26 @@ public class Player_Controller : MonoBehaviour
         // if the last key is a non-lateral movement key, execute it
         else
         {
+            char last_key = combo_string[combo_string.Length - 1];
 
+            switch (last_key)
+            {
+                case '^':
+                    MoveJump();
+                    break;
+                case 'v':
+                    MoveCrouch();
+                    break;
+                case 'b':
+                    MoveBlock();
+                    break;
+                case 'p':
+                    MovePunch();
+                    break;
+                case 'k':
+                    MoveKick();
+                    break;
+            }
         }
     }
 
