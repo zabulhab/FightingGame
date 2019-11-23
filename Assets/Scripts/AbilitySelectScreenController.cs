@@ -72,13 +72,13 @@ public class AbilitySelectScreenController : MonoBehaviour
     {
         if (previousWinner == -1) return; 
 
-        if(previousWinner == 1 && player1Capacity < maxCapacity)
+        if(previousWinner == 0 && player1Capacity < maxCapacity)
         {
             player1Confirmed = false;
             player1Capacity++;
             player1SlotsButton[player1Capacity].SetActive(true);
         }
-        if(previousWinner == 2 && player2Capacity < maxCapacity)
+        if(previousWinner == 1 && player2Capacity < maxCapacity)
         {
             player2Confirmed = false;
             player2Capacity++;
@@ -90,14 +90,14 @@ public class AbilitySelectScreenController : MonoBehaviour
     {
         TextMeshProUGUI[] currentButton = EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<TextMeshProUGUI>();
 
-        if (currentButton[0].name == "P1Confirm")
+        if (currentButton[0].name == "P1Confirm" && !player1Confirmed)
         {
             TextMeshProUGUI[] player1Move = player1SlotsButton[player1Capacity].GetComponentsInChildren<TextMeshProUGUI>();
             player1Slots.Add(int.Parse(player1Move[0].text));
             player1Confirmed = true; 
         }
 
-        if (currentButton[0].name == "P2Confirm")
+        if (currentButton[0].name == "P2Confirm" && !player2Confirmed)
         {
             TextMeshProUGUI[] player2Move = player2SlotsButton[player2Capacity].GetComponentsInChildren<TextMeshProUGUI>();
             player2Slots.Add(int.Parse(player2Move[0].text));
@@ -110,6 +110,8 @@ public class AbilitySelectScreenController : MonoBehaviour
 
     public void fillSlot()
     {
+        if (player1Confirmed && player2Confirmed) return;
+
         TextMeshProUGUI[] currentButton = EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<TextMeshProUGUI>();
 
         if (previousWinner == -1)
@@ -120,7 +122,7 @@ public class AbilitySelectScreenController : MonoBehaviour
         }
         else
         {
-            TextMeshProUGUI[] prevWinnerText = previousWinner == 1 ? player1SlotsButton[player1Capacity].GetComponentsInChildren<TextMeshProUGUI>() :
+            TextMeshProUGUI[] prevWinnerText = previousWinner == 0 ? player1SlotsButton[player1Capacity].GetComponentsInChildren<TextMeshProUGUI>() :
                                                                      player2SlotsButton[player2Capacity].GetComponentsInChildren<TextMeshProUGUI>();
             prevWinnerText[0].text = currentButton[0].text;
         }
