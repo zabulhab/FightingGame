@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e803228cc3394e640a3c3621c9a51089
 ModelImporter:
   serializedVersion: 26
@@ -12,6 +13,12 @@ ModelImporter:
   - first:
       74: -5673157485144631748
     second: m_ca01_skeleton|m_ca01_skeleton.001|mixamo.com|Layer0
+=======
+guid: 67640cc448efb874ea176724bf503ed8
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable: []
+>>>>>>> move_selection_screen
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -32,13 +39,18 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
+<<<<<<< HEAD
     animationCompression: 3
+=======
+    animationCompression: 1
+>>>>>>> move_selection_screen
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: m_ca01_skeleton|Jumping Jacks
@@ -69,6 +81,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> move_selection_screen
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -110,6 +125,7 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3
+<<<<<<< HEAD
     human:
     - boneName: pelvis
       humanName: Hips
@@ -1043,6 +1059,10 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
+=======
+    human: []
+    skeleton: []
+>>>>>>> move_selection_screen
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -1053,10 +1073,17 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+<<<<<<< HEAD
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 3
+=======
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+>>>>>>> move_selection_screen
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
