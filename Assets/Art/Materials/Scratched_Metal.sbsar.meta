@@ -615,9 +615,9 @@ ScriptedImporter:
       type: 3}
     generatedTextures:
     - {fileID: -1736290017994255519, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
-    - {fileID: 6414234479005157750, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
-    - {fileID: -3774074416797872797, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
     - {fileID: -8325311290705174390, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
+    - {fileID: -3774074416797872797, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
+    - {fileID: 6414234479005157750, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
   - graphLabel: Pauldrons
     prototypeName: Scratched_Metal
     graphDescIndex: 0
@@ -1022,9 +1022,9 @@ ScriptedImporter:
       type: 3}
     generatedTextures:
     - {fileID: -4174697725104638483, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
-    - {fileID: 3032730392992699319, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
-    - {fileID: -4533097363028282786, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
     - {fileID: 2755516626937281446, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
+    - {fileID: -4533097363028282786, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
+    - {fileID: 3032730392992699319, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
   - graphLabel: Mask
     prototypeName: Scratched_Metal
     graphDescIndex: 0
@@ -1079,10 +1079,6 @@ ScriptedImporter:
       - name: _ParallaxMap
         texture: {fileID: -7400673363915101213, guid: cc094a048b56a6c41b7323196922c89f,
           type: 3}
-        scale: {x: 1, y: 1}
-        offset: {x: 0, y: 0}
-      - name: _SpecGlossMap
-        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       floats:
