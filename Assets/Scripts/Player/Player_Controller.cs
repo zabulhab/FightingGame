@@ -11,6 +11,7 @@ public class Player_Controller : MonoBehaviour
     [Space(10)]
 
     public float move_speed = 20f;
+    public float crouch_mult = 0.5f;
     public float combo_wait_time_sec = 0.15f;
 
     /* PRIVATE */
@@ -33,41 +34,65 @@ public class Player_Controller : MonoBehaviour
     }
 
     private Rigidbody self_rbody;
+    private Animator self_animator;
     private List<Combo> valid_combos = new List<Combo>(); 
     private string combo_string = "";
     private int move = 0;
     private float last_key_pressed_time = 0;
+    private bool crouching = false;
 
     /* USER FUNCTIONS */
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// BASIC MOVES
     private void Movement()
     {
-        self_rbody.AddForce(new Vector3(move_speed * move * Time.fixedDeltaTime * 100, 0));
+        float move_mult = 1;
+        // Crouch
+        if (crouching)
+        {
+            move_mult = crouch_mult;
+            self_animator.SetBool("crouch", true);
+        }
+        else
+        {
+            self_animator.SetBool("crouch", false);
+        }
+
+        // Lateral
+        self_rbody.AddForce(new Vector3(move_speed * move * Time.fixedDeltaTime * 100 * move_mult, 0));
+        self_animator.SetFloat("move_spd", Mathf.Abs(move));
     }
 
     private void MoveJump()
     {
         Debug.Log("Jump");
-    }
-
-    private void MoveCrouch()
-    {
-        Debug.Log("Crouch");
+        self_animator.SetBool("jump", true);
     }
 
     private void MoveBlock()
     {
         Debug.Log("Block");
+        self_animator.SetBool("block", true);
     }
 
     private void MovePunch()
     {
         Debug.Log("Punch");
+        self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
         Debug.Log("Kick");
+        self_animator.SetBool("kick", true);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Combos
+
+    private void Combo1()
+    {
+        Debug.Log("Combo1");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,7 +104,7 @@ public class Player_Controller : MonoBehaviour
 
     private void PollInput()
     {
-        // Get movement input
+        // Get lateral movement input
         if (Input.GetButton("Forward") && Input.GetButton("Back"))
         {
             move = 0;
@@ -95,6 +120,16 @@ public class Player_Controller : MonoBehaviour
         else
         {
             move = 0;
+        }
+
+        // Get crouch
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouching = true;
+        }
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            crouching = false;
         }
 
         // Get combo input
@@ -163,9 +198,6 @@ public class Player_Controller : MonoBehaviour
                 case '^':
                     MoveJump();
                     break;
-                case 'v':
-                    MoveCrouch();
-                    break;
                 case 'b':
                     MoveBlock();
                     break;
@@ -202,6 +234,7 @@ public class Player_Controller : MonoBehaviour
     private void Awake()
     {
         self_rbody = GetComponent<Rigidbody>();
+        self_animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -210,7 +243,7 @@ public class Player_Controller : MonoBehaviour
         // TODO
 
         /* Combos */
-        valid_combos.Add(new Combo(Combos.MoveOne, "<><", 0));
+        valid_combos.Add(new Combo(Combo1, "<><", 0));
     }
 
     private void Update()

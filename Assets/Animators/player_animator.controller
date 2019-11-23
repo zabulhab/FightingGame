@@ -221,7 +221,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
+  - m_ConditionMode: 3
     m_ConditionEvent: move_spd
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -271,7 +271,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
+  - m_ConditionMode: 3
     m_ConditionEvent: move_spd
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -350,7 +350,7 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: move_spd
-    m_Type: 3
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -576,7 +576,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: move_spd
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -887,7 +887,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: move_spd
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
