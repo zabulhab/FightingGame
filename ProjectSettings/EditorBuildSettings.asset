@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ZenaLab/MainMenuTest.unity
     guid: 89de9422264174fb8b16cfd1c9d31945
   - enabled: 1
-    path: Assets/Scenes/ZenaLab/SelectScreenTest.unity
-    guid: 5482517c5bbf54ba982e2b3107da76b4
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/AbilitySelectScreen.unity
+    guid: 379ec6d880f92aa489b5ccb51426ae13
+  - enabled: 1
+    path: Assets/Scenes/ZenaLab/HUDTest.unity
+    guid: 99691f9cd5e3e4539bb8619e6e64b112
   m_configObjects: {}
