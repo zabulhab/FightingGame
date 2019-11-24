@@ -20,17 +20,17 @@ public static class Moves
 
     static Moves()
     {
-        // Move 1
-        Move move1 = new Move();
-        move1.name = "test move";
-        move1.combo_string = "";
-        move1.move_id = 0;
-        move1.target_zone = 0;
-        move1.damage = 10;
-        move1.is_attack = true;
-        move1.is_special = false;
-        move1.is_block = false;
-        all_moves.Add(move1);
+        // Default move
+        Move passive = new Move();
+        passive.name = "passive";
+        passive.combo_string = "";
+        passive.move_id = 0;
+        passive.target_zone = 0;
+        passive.damage = 0;
+        passive.is_attack = false;
+        passive.is_special = false;
+        passive.is_block = false;
+        all_moves.Add(passive);
 
         ///////////////////////////////////////////////////////////////////////
         //////////////////////////// Special Moves ////////////////////////////
@@ -159,5 +159,73 @@ public static class Moves
         ///////////////////////////////////////////////////////////////////////
         ////////////////////////// End Special Moves //////////////////////////
         ///////////////////////////////////////////////////////////////////////
+
+        /* Normal moves, only moves that affect dmg calc, otherwise assigned passive */
+
+        Move high_punch = new Move();
+        high_punch.name = "high punch";
+        high_punch.combo_string = "p";
+        high_punch.move_id = 11;
+        high_punch.target_zone = 1;
+        high_punch.damage = 10;
+        high_punch.is_attack = true;
+        high_punch.is_special = false;
+        high_punch.is_block = false;
+        all_moves.Add(high_punch);
+
+        Move low_punch = new Move();
+        low_punch.name = "low punch";
+        low_punch.combo_string = "p";
+        low_punch.move_id = 12;
+        low_punch.target_zone = 2;
+        low_punch.damage = 10;
+        low_punch.is_attack = true;
+        low_punch.is_special = false;
+        low_punch.is_block = false;
+        all_moves.Add(low_punch);
+
+        Move high_kick = new Move();
+        high_kick.name = "high kick";
+        high_kick.combo_string = "k";
+        high_kick.move_id = 13;
+        high_kick.target_zone = 1;
+        high_kick.damage = 10;
+        high_kick.is_attack = true;
+        high_kick.is_special = false;
+        high_kick.is_block = false;
+        all_moves.Add(high_kick);
+
+        Move low_kick = new Move();
+        low_kick.name = "low kick";
+        low_kick.combo_string = "k";
+        low_kick.move_id = 14;
+        low_kick.target_zone = 2;
+        low_kick.damage = 10;
+        low_kick.is_attack = true;
+        low_kick.is_special = false;
+        low_kick.is_block = false;
+        all_moves.Add(low_kick);
+
+        Move high_block = new Move();
+        high_block.name = "high block";
+        high_block.combo_string = "b";
+        high_block.move_id = 15;
+        high_block.target_zone = 1;
+        high_block.damage = 10;
+        high_block.is_attack = false;
+        high_block.is_special = false;
+        high_block.is_block = true;
+        all_moves.Add(high_block);
+
+        Move low_block = new Move();
+        low_block.name = "low block";
+        low_block.combo_string = "b";
+        low_block.move_id = 16;
+        low_block.target_zone = 2;
+        low_block.damage = 10;
+        low_block.is_attack = false;
+        low_block.is_special = false;
+        low_block.is_block = true;
+        all_moves.Add(low_block);
     }
 }
