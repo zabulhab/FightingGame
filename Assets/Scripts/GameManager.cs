@@ -33,17 +33,17 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// All usable moves selectable by both players
     /// </summary>
-    private List<bool> AllAllowedMoves;
+    private List<GameObject> AllSelectableMoveButtons;
 
     /// <summary>
     /// The moves P1 has available for this round
     /// </summary>
-    private List<bool> P1CurRoundMoves;
+    private List<int> P1CurRoundMoves;
 
     /// <summary>
     /// THe moves P2 has available for this round
     /// </summary>
-    private List<bool> P2CurRoundMoves;
+    private List<int> P2CurRoundMoves;
 
     private int MainMenuSceneIdx = 0;
     private int SelectScreenIdx = 1;
