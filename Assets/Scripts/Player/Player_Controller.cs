@@ -12,8 +12,12 @@ public class Player_Controller : MonoBehaviour
 
     public string player_num = "";
     public float move_speed = 20f;
+    public float jump_force = 10f;
     public float crouch_mult = 0f;
     public float combo_wait_time_sec = 0.15f;
+    [Space(10)]
+
+    public Transform ground_check;
 
     /* PRIVATE */
 
@@ -45,12 +49,19 @@ public class Player_Controller : MonoBehaviour
     private float last_key_pressed_time = 0;
     private bool crouching = false;
     private bool blocking = false;
+    private bool can_jump = true;
 
     /* USER FUNCTIONS */
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Public functions
     public int GetRecentMove()
     {
         return last_used_move;
+    }
+
+    public void SetCanJump()
+    {
+        can_jump = true;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,9 +97,14 @@ public class Player_Controller : MonoBehaviour
 
     private void MoveJump()
     {
-        last_used_move = 0;
-        //Debug.Log("Jump");
-        self_animator.SetBool("jump", true);
+        if (can_jump)
+        {
+            last_used_move = 0;
+            can_jump = false;
+            //Debug.Log("Jump");
+            self_rbody.AddForce(new Vector3(0, jump_force));
+            self_animator.SetBool("jump", true);
+        }
     }
 
     private void MovePunch()
