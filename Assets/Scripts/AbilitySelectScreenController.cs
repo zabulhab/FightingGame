@@ -13,13 +13,13 @@ public class AbilitySelectScreenController : MonoBehaviour
     public List<GameObject> AllAbilityButtons;
 
     public TextMeshProUGUI selectionHeader;
-    //TODO: maintain arrays with the players abilities at all times.
-    public static List<int> player1Slots = new List<int>();
-    public static List<int> player2Slots = new List<int>();
+
+    public static List<string> player1Slots = new List<string>();
+    public static List<string> player2Slots = new List<string>();
 
     //Define the slots UI avaliable for each player
-    public GameObject[] player1SlotButtons;
-    public GameObject[] player2SlotButtons;
+    public GameObject[] player1UISlots;
+    public GameObject[] player2UISlots;
 
     public int maxCapacity = 4; 
 
@@ -59,7 +59,7 @@ public class AbilitySelectScreenController : MonoBehaviour
 
         if (disabledMoves == null)
         {
-            Debug.Log("DISABLED MOVES EMPTY");
+            Debug.Log("NO DISABLED MOVES");
             return;
         }
 
@@ -104,40 +104,114 @@ public class AbilitySelectScreenController : MonoBehaviour
     }
 
     /// <summary>
-    /// Give both players an additional move slot on scene load.
+    /// On scene load, handles logic for giving more slots and filling in existing ones
     /// </summary>
     public void InitializePlayerSelectionSlotsForRound()
     {
-        //if(previousWinner == 1 && player2Capacity < maxCapacity)
-        //{
-        //    player2Confirmed = false;
-        //    player2Capacity++;
-        //    player2SlotButtons[player2Capacity].SetActive(true);
-        //}
-        //if(previousWinner == 2 && player1Capacity < maxCapacity)
-        //{
-        //    player1Confirmed = false;
-        //    player1Capacity++;
-        //    player1SlotButtons[player1Capacity].SetActive(true);
-        //}
-        // TODO: Account for max capacity? Probably fine tho...
-        for (int i = 0;  i < player1SlotButtons.Length; i++)
+
+        // Set previous slots active
+        for (int i = 0;  i < player1UISlots.Length; i++)
         {
             if (i < player1CurCapacity)
             {
-                player1SlotButtons[i].SetActive(true);
+                player1UISlots[i].SetActive(true);
             }
         }
-        for (int i = 0; i < player2SlotButtons.Length; i++)
+        for (int i = 0; i < player2UISlots.Length; i++)
         {
             if (i < player2CurCapacity)
             {
-                player2SlotButtons[i].SetActive(true);
+                player2UISlots[i].SetActive(true);
             }
         }
 
-        player1SlotButtons[player1CurCapacity-1].SetActive(true);
-        player2SlotButtons[player2CurCapacity-1].SetActive(true);
+        // Set new slots active
+        player1UISlots[player1CurCapacity-1].SetActive(true);
+        player2UISlots[player2CurCapacity-1].SetActive(true);
+
+        //// if needed, the slots before will get the text from the moves the player selected before
+        //for (int i = 0; i < player1CurCapacity - 1; i++)
+        //{
+        //    for (int j = 0; j < GameManager.GetP1SpecialMoveInts().Count; j++)
+        //    {
+        //        TextMeshProUGUI[] player1Move = player1UISlots[i].GetComponentsInChildren<TextMeshProUGUI>();
+        //        player1Move[0].text = player1Move[i].text;
+        //    }
+        //}
+
+        // fill in previous slots
+
+        // remember which moves' IDs are already accounted for
+        List<int> P1finishedMoveIDs = new List<int>();
+
+        //if (GameManager.GetP1SpecialMoveInts() == null)
+        //{
+        //    Debug.Log("P1 MOVE Ints null");
+        //}
+        //else
+        //{
+        //    foreach (int moveID in GameManager.GetP1SpecialMoveInts())
+        //    {
+        //        Debug.Log("MOVE IDs for P1: " + moveID);
+        //    }
+        //}
+
+        // curcapacity - 1 to ignore the last slot, which is currently empty
+        for (int i = 0; i < player1CurCapacity - 1; i++)
+        {
+            // TODO: keep track of which move IDs are ALREADY in the list
+            // Maybe make the moves loop first and then the int i one?
+            foreach (Move m in Moves.all_moves)
+            {
+                // if any defined special move has the same id as one in our
+                // p1 list of available moves, then set the slot text to the name 
+                // stored in that special move in the all_moves list
+                if (GameManager.GetP1SpecialMoveInts().Contains(m.move_id) && !P1finishedMoveIDs.Contains(m.move_id))
+                {
+                    TextMeshProUGUI slotToFill = player1UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
+                    slotToFill.text = m.name;
+                    Debug.Log("P1 " + m.name);
+                    P1finishedMoveIDs.Add(m.move_id);
+                }
+
+
+            }
+        }
+
+        //if (GameManager.GetP2SpecialMoveInts() == null)
+        //{
+        //    Debug.Log("P2 MOVE Ints null");
+        //}
+        //else 
+        //{
+        //    foreach (int moveID in GameManager.GetP2SpecialMoveInts())
+        //    {
+        //        Debug.Log("MOVE IDs for P2: " + moveID);
+        //    }
+        //}
+
+        // remember which moves' IDs are already accounted for
+        List<int> P2finishedMoveIDs = new List<int>();
+
+        // curcapacity - 1 to ignore the last slot, which is currently empty
+        for (int i = 0; i < player2CurCapacity - 1; i++)
+        {
+            // TODO: keep track of which move IDs are ALREADY in the list
+            // Maybe make the moves loop first and then the int i one?
+            foreach (Move m in Moves.all_moves)
+            {
+                // if any defined special move has the same id as one in our
+                // p2 list of available moves, then set the slot text to the name 
+                // stored in that special move in the all_moves list
+                if (GameManager.GetP2SpecialMoveInts().Contains(m.move_id) && !P2finishedMoveIDs.Contains(m.move_id))
+                {
+                    TextMeshProUGUI slotToFill = player2UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
+                    slotToFill.text = m.name;
+                    Debug.Log("P2 " + m.name);
+                    P2finishedMoveIDs.Add(m.move_id);
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -154,8 +228,8 @@ public class AbilitySelectScreenController : MonoBehaviour
             // OR if we won and the losing player has confirmed
             if (previousWinner != 1 || previousWinner == 1 && player2Confirmed)
             {
-                TextMeshProUGUI[] player1Move = player1SlotButtons[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
-                player1Slots.Add(int.Parse(player1Move[0].text));
+                TextMeshProUGUI[] player1Move = player1UISlots[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                player1Slots.Add(player1Move[0].text);
                 player1Confirmed = true;
                 DisableLastSelectedMoveButton();
 
@@ -171,8 +245,8 @@ public class AbilitySelectScreenController : MonoBehaviour
             // OR if we won and the losing player has confirmed
             if (previousWinner != 2 || previousWinner == 2 && player1Confirmed)
             {
-                TextMeshProUGUI[] player2Move = player2SlotButtons[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
-                player2Slots.Add(int.Parse(player2Move[0].text));
+                TextMeshProUGUI[] player2Move = player2UISlots[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                player2Slots.Add(player2Move[0].text);
                 player2Confirmed = true;
                 DisableLastSelectedMoveButton();
 
@@ -199,8 +273,8 @@ public class AbilitySelectScreenController : MonoBehaviour
         {
             // TODO: Account for random starting player
             // if p1 hasn't confirmed, map it to p1, else map it to p2
-            TextMeshProUGUI[] prevLoserOpenSlotText = !player1Confirmed ? player1SlotButtons[player1CurCapacity-1].GetComponentsInChildren<TextMeshProUGUI>() :
-                                                                   player2SlotButtons[player2CurCapacity-1].GetComponentsInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI[] prevLoserOpenSlotText = !player1Confirmed ? player1UISlots[player1CurCapacity-1].GetComponentsInChildren<TextMeshProUGUI>() :
+                                                                   player2UISlots[player2CurCapacity-1].GetComponentsInChildren<TextMeshProUGUI>();
             prevLoserOpenSlotText[0].text = currentButton[0].text;
         }
         else
@@ -208,25 +282,25 @@ public class AbilitySelectScreenController : MonoBehaviour
             // if p2 lost and hasn't confirmed yet, give to p2 slot
             if (previousWinner == 1 && !player2Confirmed)
             {
-                TextMeshProUGUI[] prevLoserOpenSlotText = player2SlotButtons[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] prevLoserOpenSlotText = player2UISlots[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
                 prevLoserOpenSlotText[0].text = currentButton[0].text;
             }
             // if p2 lost but has confirmed, give to p1 slot
             else if (previousWinner == 1 && player2Confirmed && !player1Confirmed)
             {
-                TextMeshProUGUI[] prevLoserOpenSlotText = player1SlotButtons[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] prevLoserOpenSlotText = player1UISlots[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
                 prevLoserOpenSlotText[0].text = currentButton[0].text;
             }
             // if p1 lost and hasn't confirmed, give to p2 slot
             else if (previousWinner == 2 && !player1Confirmed)
             {
-                TextMeshProUGUI[] prevLoserOpenSlotText = player1SlotButtons[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] prevLoserOpenSlotText = player1UISlots[player1CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
                 prevLoserOpenSlotText[0].text = currentButton[0].text;
             }
             // if p1 lost but has confirmed, give to p2 slot
             else if (previousWinner == 2 && player1Confirmed && !player2Confirmed)
             {
-                TextMeshProUGUI[] prevLoserOpenSlotText = player2SlotButtons[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI[] prevLoserOpenSlotText = player2UISlots[player2CurCapacity - 1].GetComponentsInChildren<TextMeshProUGUI>();
                 prevLoserOpenSlotText[0].text = currentButton[0].text;
             }
 

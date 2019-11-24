@@ -289,7 +289,6 @@ public class GameManager : MonoBehaviour
     /// <param name="newSpecialID">New special's moveID.</param>
     public static void AddToP1SpecialMoveInts(int newSpecialID)
     {
-        // HACK: initialize list for first usage to avoid null ptr exception
         if (instance.P1CurRoundMoves == null)
         {
             instance.P1CurRoundMoves = new List<int>();
