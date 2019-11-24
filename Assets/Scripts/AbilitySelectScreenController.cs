@@ -129,88 +129,24 @@ public class AbilitySelectScreenController : MonoBehaviour
         player1UISlots[player1CurCapacity-1].SetActive(true);
         player2UISlots[player2CurCapacity-1].SetActive(true);
 
-        //// if needed, the slots before will get the text from the moves the player selected before
-        //for (int i = 0; i < player1CurCapacity - 1; i++)
-        //{
-        //    for (int j = 0; j < GameManager.GetP1SpecialMoveInts().Count; j++)
-        //    {
-        //        TextMeshProUGUI[] player1Move = player1UISlots[i].GetComponentsInChildren<TextMeshProUGUI>();
-        //        player1Move[0].text = player1Move[i].text;
-        //    }
-        //}
-
-        // fill in previous slots
-
-        // remember which moves' IDs are already accounted for
-        List<int> P1finishedMoveIDs = new List<int>();
-
-        //if (GameManager.GetP1SpecialMoveInts() == null)
-        //{
-        //    Debug.Log("P1 MOVE Ints null");
-        //}
-        //else
-        //{
-        //    foreach (int moveID in GameManager.GetP1SpecialMoveInts())
-        //    {
-        //        Debug.Log("MOVE IDs for P1: " + moveID);
-        //    }
-        //}
-
         // curcapacity - 1 to ignore the last slot, which is currently empty
         for (int i = 0; i < player1CurCapacity - 1; i++)
         {
-            // TODO: keep track of which move IDs are ALREADY in the list
-            // Maybe make the moves loop first and then the int i one?
-            foreach (Move m in Moves.all_moves)
-            {
-                // if any defined special move has the same id as one in our
-                // p1 list of available moves, then set the slot text to the name 
-                // stored in that special move in the all_moves list
-                if (GameManager.GetP1SpecialMoveInts().Contains(m.move_id) && !P1finishedMoveIDs.Contains(m.move_id))
-                {
-                    TextMeshProUGUI slotToFill = player1UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
-                    slotToFill.text = m.name;
-                    Debug.Log("P1 " + m.name);
-                    P1finishedMoveIDs.Add(m.move_id);
-                }
+            List<int> t = GameManager.GetP1SpecialMoveInts();
+            Move m = Moves.all_moves[t[i]];
 
-
-            }
+            TextMeshProUGUI slotToFill = player1UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
+            slotToFill.text = m.name;
         }
-
-        //if (GameManager.GetP2SpecialMoveInts() == null)
-        //{
-        //    Debug.Log("P2 MOVE Ints null");
-        //}
-        //else 
-        //{
-        //    foreach (int moveID in GameManager.GetP2SpecialMoveInts())
-        //    {
-        //        Debug.Log("MOVE IDs for P2: " + moveID);
-        //    }
-        //}
-
-        // remember which moves' IDs are already accounted for
-        List<int> P2finishedMoveIDs = new List<int>();
 
         // curcapacity - 1 to ignore the last slot, which is currently empty
         for (int i = 0; i < player2CurCapacity - 1; i++)
         {
-            // TODO: keep track of which move IDs are ALREADY in the list
-            // Maybe make the moves loop first and then the int i one?
-            foreach (Move m in Moves.all_moves)
-            {
-                // if any defined special move has the same id as one in our
-                // p2 list of available moves, then set the slot text to the name 
-                // stored in that special move in the all_moves list
-                if (GameManager.GetP2SpecialMoveInts().Contains(m.move_id) && !P2finishedMoveIDs.Contains(m.move_id))
-                {
-                    TextMeshProUGUI slotToFill = player2UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
-                    slotToFill.text = m.name;
-                    Debug.Log("P2 " + m.name);
-                    P2finishedMoveIDs.Add(m.move_id);
-                }
-            }
+            List<int> t = GameManager.GetP2SpecialMoveInts();
+            Move m = Moves.all_moves[t[i]];
+
+            TextMeshProUGUI slotToFill = player2UISlots[i].GetComponentInChildren<TextMeshProUGUI>();
+            slotToFill.text = m.name;
         }
     }
 
