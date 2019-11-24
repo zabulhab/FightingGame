@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void EnterFightScene()
     {
-        Debug.Log("FIRST FIGHT");
         // current round num already set from start to 1
         SceneManager.LoadScene(instance.FightSceneIdx);
     }
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void ProgressToSelectionMenu()
     {
-        UnpauseGame();
+        //UnpauseGame();
         Debug.Log("IN SELECTION MENU BETWEEN FIGHTS");
         SceneManager.LoadScene(instance.SelectScreenIdx);
     }
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void RestartRound()
     {
-        UnpauseGame();
+        //UnpauseGame();
         //TODO: reset player health and timer
         SceneManager.LoadScene(instance.FightSceneIdx);
         Debug.Log("RESTARTING FIGHT");
@@ -124,7 +123,7 @@ public class GameManager : MonoBehaviour
     public static void RoundOver(int winner)
     {
         Debug.Log("ROUND OVER");
-        PauseGame();
+        //PauseGame();
         UpdateWinCounts(winner);
         UpdateMostRecentLoser(winner);
 
