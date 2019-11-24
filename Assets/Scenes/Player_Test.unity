@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 78682988}
   m_Layer: 0
   m_Name: collider_spine
-  m_TagString: Untagged
+  m_TagString: WeakPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 95687319}
   m_Layer: 0
   m_Name: collider_lowerarm_R
-  m_TagString: Untagged
+  m_TagString: AttackPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,52 +203,6 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95687317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &123665806
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 123665807}
-  - component: {fileID: 123665808}
-  m_Layer: 0
-  m_Name: collider_calf_foot_L
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &123665807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123665806}
-  m_LocalRotation: {x: 0.000000059604616, y: 0.00000008754428, z: 0.00000004720639,
-    w: 1}
-  m_LocalPosition: {x: -0.00067282, y: 0.0069758, z: 0.0020941}
-  m_LocalScale: {x: -0.0046956795, y: -0.002144567, z: -0.0023226745}
-  m_Children: []
-  m_Father: {fileID: 536675472}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &123665808
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123665806}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -430,6 +384,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 74.874, y: -38.24, z: -117.078}
+--- !u!1 &522706485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2598264668285745766, guid: e803228cc3394e640a3c3621c9a51089,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227047063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &522706487
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522706485}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &536675472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6881184516765606146, guid: e803228cc3394e640a3c3621c9a51089,
@@ -448,7 +424,7 @@ GameObject:
   - component: {fileID: 561415499}
   m_Layer: 0
   m_Name: collider_head
-  m_TagString: Untagged
+  m_TagString: WeakPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,6 +456,67 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.19, z: 0.14}
   m_Center: {x: -0.02, y: 0.05, z: -0.01}
+--- !u!1 &895461510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895461511}
+  - component: {fileID: 895461513}
+  - component: {fileID: 895461512}
+  m_Layer: 0
+  m_Name: collider_calf_R_A
+  m_TagString: AttackPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895461511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895461510}
+  m_LocalRotation: {x: -0.000000089406925, y: 0.000000040978176, z: 0.000000037252885,
+    w: 1}
+  m_LocalPosition: {x: -0.00023000351, y: 0.002169999, z: 0.00049999537}
+  m_LocalScale: {x: 0.0023141042, y: 0.013542578, z: 0.003843428}
+  m_Children: []
+  m_Father: {fileID: 1590267935}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &895461512
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895461510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.46588665
+  m_Height: 0.2990318
+  m_Direction: 1
+  m_Center: {x: -0.043784514, y: 0.4341548, z: 0.34410363}
+--- !u!136 &895461513
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895461510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1108958998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: e803228cc3394e640a3c3621c9a51089,
@@ -575,6 +612,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7199902334543741925, guid: e803228cc3394e640a3c3621c9a51089,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e803228cc3394e640a3c3621c9a51089, type: 3}
 --- !u!1 &1229159466
@@ -587,9 +629,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1229159467}
   - component: {fileID: 1229159468}
+  - component: {fileID: 1229159469}
   m_Layer: 0
   m_Name: collider_calf_L
-  m_TagString: Untagged
+  m_TagString: WeakPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229159466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00019814, y: 0.0027566, z: 0.00011295}
+  m_LocalPosition: {x: 0.0004, y: 0.00284, z: 0.00066}
   m_LocalScale: {x: -0.0037505496, y: -0.013209471, z: -0.0019948597}
   m_Children: []
   m_Father: {fileID: 536675472}
@@ -622,6 +665,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &1229159469
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229159466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.13078977
+  m_Height: 3.3761342
+  m_Direction: 2
+  m_Center: {x: 0.10130249, y: -0.4100591, z: 0.16540119}
 --- !u!1 &1238063880
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,9 +689,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1238063881}
   - component: {fileID: 1238063882}
+  - component: {fileID: 1238063883}
   m_Layer: 0
-  m_Name: collider_calf_R
-  m_TagString: Untagged
+  m_Name: collider_calf_R_W
+  m_TagString: WeakPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,52 +725,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1241064552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1241064553}
-  - component: {fileID: 1241064554}
-  m_Layer: 0
-  m_Name: collider_calf_foot_R
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1241064553
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241064552}
-  m_LocalRotation: {x: -0.000000089406925, y: 0.000000040978176, z: 0.000000037252885,
-    w: 1}
-  m_LocalPosition: {x: -0.0009755, y: 0.006412, z: 0.0027995}
-  m_LocalScale: {x: 0.0015308231, y: 0.0030713917, z: 0.0025424792}
-  m_Children: []
-  m_Father: {fileID: 1590267935}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1241064554
+--- !u!136 &1238063883
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241064552}
+  m_GameObject: {fileID: 1238063880}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.46588665
+  m_Height: 0.2990318
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.043784514, y: 0.4341548, z: 0.34410363}
 --- !u!1 &1424639494
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +751,7 @@ GameObject:
   - component: {fileID: 1424639496}
   m_Layer: 0
   m_Name: collider_lowerarm_L
-  m_TagString: Untagged
+  m_TagString: AttackPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -996,6 +1022,67 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &2062906694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062906695}
+  - component: {fileID: 2062906697}
+  - component: {fileID: 2062906696}
+  m_Layer: 0
+  m_Name: collider_calf_L_A
+  m_TagString: AttackPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2062906695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062906694}
+  m_LocalRotation: {x: 0.000000059604616, y: 0.00000008754428, z: 0.00000004720639,
+    w: 1}
+  m_LocalPosition: {x: 0.00040661177, y: 0.0028390924, z: 0.0006598128}
+  m_LocalScale: {x: -0.0037506032, y: -0.013209529, z: -0.0019949106}
+  m_Children: []
+  m_Father: {fileID: 536675472}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2062906696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062906694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.13078977
+  m_Height: 3.3761342
+  m_Direction: 2
+  m_Center: {x: 0.10130249, y: -0.4100591, z: 0.16540119}
+--- !u!136 &2062906697
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062906694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2143973100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6081470830831867213, guid: e803228cc3394e640a3c3621c9a51089,
