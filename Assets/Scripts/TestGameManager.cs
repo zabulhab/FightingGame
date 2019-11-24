@@ -5,12 +5,6 @@ using UnityEngine;
 public class TestGameManager : MonoBehaviour
 {
 
-    public void TestProgressFights()
-    {
-        Debug.Log("HI");
-        GameManager.RoundOver();
-    }
-
     public void TestStartBout()
     {
         GameManager.EnterFightScene();
@@ -29,5 +23,10 @@ public class TestGameManager : MonoBehaviour
     public void RestartRound()
     {
         GameManager.RestartRound();
+    }
+
+    public void StartNextRound()
+    {
+        GameManager.NextRoundStart();
     }
 }
