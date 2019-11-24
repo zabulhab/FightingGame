@@ -83,6 +83,7 @@ public class Player_Controller : MonoBehaviour
         // Block
         if (blocking)
         {
+            move_mult = 0;
             self_animator.SetBool("block", true);
         }
         else

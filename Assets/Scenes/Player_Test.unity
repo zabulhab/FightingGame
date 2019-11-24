@@ -1023,6 +1023,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0935d5643bac66e428b5c39806d5ec26, type: 2}
+    - target: {fileID: -6057140222963153312, guid: e803228cc3394e640a3c3621c9a51089,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e803228cc3394e640a3c3621c9a51089,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1222,6 +1227,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0935d5643bac66e428b5c39806d5ec26, type: 2}
+    - target: {fileID: -6057140222963153312, guid: e803228cc3394e640a3c3621c9a51089,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e803228cc3394e640a3c3621c9a51089,
         type: 3}
       propertyPath: m_LocalRotation.x
