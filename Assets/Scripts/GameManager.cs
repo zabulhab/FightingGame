@@ -30,20 +30,20 @@ public class GameManager : MonoBehaviour
     // Which round are we on? Starts at 1 by default
     private int currentRoundNum =1;
 
-    /// <summary>
-    /// All usable moves selectable by both players
-    /// </summary>
-    private List<bool> AllAllowedMoves;
+    // List of ints corresponding to specials that are locked.
+    // Initially empty; added to from AbilitySelectScreenController
+    // when confirming moves, and reset on bout end
+    private List<int> specialIDsLockedFromSelection;
 
     /// <summary>
     /// The moves P1 has available for this round
     /// </summary>
-    private List<bool> P1CurRoundMoves;
+    private List<int> P1CurRoundMoves;
 
     /// <summary>
     /// THe moves P2 has available for this round
     /// </summary>
-    private List<bool> P2CurRoundMoves;
+    private List<int> P2CurRoundMoves;
 
     private int MainMenuSceneIdx = 0;
     private int SelectScreenIdx = 1;
@@ -235,9 +235,12 @@ public class GameManager : MonoBehaviour
     private static void ResetWinStats()
     {
         instance.MostRecentLoser = 0;
+        instance.currentRoundNum = 1;
         instance.P1WinCount = 0;
         instance.P2WinCount = 0;
-        instance.currentRoundNum = 1;
+        instance.P1CurRoundMoves.Clear();
+        instance.P2CurRoundMoves.Clear();
+        instance.specialIDsLockedFromSelection.Clear();
     }
 
     /// <summary>
@@ -278,5 +281,74 @@ public class GameManager : MonoBehaviour
         instance.OnUnpause.Invoke();
         gamePaused = false;
         Time.timeScale = 1f;
+    }
+
+    /// <summary>
+    /// Adds special to p1 special move ints list
+    /// </summary>
+    /// <param name="newSpecialID">New special's moveID.</param>
+    public static void AddToP1SpecialMoveInts(int newSpecialID)
+    {
+        if (instance.P1CurRoundMoves == null)
+        {
+            instance.P1CurRoundMoves = new List<int>();
+        }
+        instance.P1CurRoundMoves.Add(newSpecialID);
+    }
+
+    /// <summary>
+    /// Adds special to p2 special move ints list
+    /// </summary>
+    /// <param name="newSpecialID">New special's moveID.</param>
+    public static void AddToP2SpecialMoveInts(int newSpecialID)
+    {
+        // HACK: initialize list for first usage to avoid null ptr exception
+        if (instance.P2CurRoundMoves == null)
+        {
+            instance.P2CurRoundMoves = new List<int>();
+        }
+        instance.P2CurRoundMoves.Add(newSpecialID);
+    }
+
+    /// <summary>
+    /// Returns a list of ints representing all of P1's enabled specials this round
+    /// </summary>
+    /// <returns>The p1 move ints.</returns>
+    public static List<int> GetP1SpecialMoveInts()
+    {
+        return instance.P1CurRoundMoves;
+    }
+
+    /// <summary>
+    /// Returns a list of ints representing all of P2's enabled specials this round
+    /// </summary>
+    /// <returns>The p1 move ints.</returns>
+    public static List<int> GetP2SpecialMoveInts()
+    {
+        return instance.P2CurRoundMoves;
+    }
+
+    /// <summary>
+    /// Adds to list of disabled special move IDs
+    /// </summary>
+    /// <param name="specialMoveID">Special move identifier.</param>
+    public static void AddToDisabledSpecialIDs(int specialMoveID)
+    {
+        // HACK: initialize list for first usage to avoid null ptr exception
+        if (instance.specialIDsLockedFromSelection == null)
+        {
+            instance.specialIDsLockedFromSelection = new List<int>();
+        }
+        instance.specialIDsLockedFromSelection.Add(specialMoveID);
+    }
+
+    /// <summary>
+    /// Returns a list of ints corresponding to the move IDs of specials that are not
+    /// yet enabled
+    /// </summary>
+    /// <returns>The list of disabled special move IDs.</returns>
+    public static List<int> GetAllDisabledSpecialIDs()
+    {
+        return instance.specialIDsLockedFromSelection;
     }
 }

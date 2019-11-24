@@ -7,7 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class AbilityButtonUIControl : MonoBehaviour
 {
-    public int MoveID;
+    public int MovesScriptMoveID;
+
     /// <summary>
     /// Grays the button BG out, disables pressing the button, grays the text
     /// </summary>
