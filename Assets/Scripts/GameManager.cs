@@ -223,6 +223,8 @@ public class GameManager : MonoBehaviour
         Debug.Log(instance.P2WinCount);
         Debug.Log(instance.MostRecentLoser);
 
+        FindObjectOfType<WinHUDUI>().DisplayWinScreen();
+
         ResetWinStats();
 
         SceneManager.LoadScene(instance.SelectScreenIdx);
