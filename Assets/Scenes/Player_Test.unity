@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBodyPartsTransform: {fileID: 1108958998}
+  enemyTagPart: P2_WP
 --- !u!1 &1056337566
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBodyPartsTransform: {fileID: 1361227655}
+  enemyTagPart: P1_WP
 --- !u!1 &1108958998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: e803228cc3394e640a3c3621c9a51089,
@@ -1258,6 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBodyPartsTransform: {fileID: 1361227655}
+  enemyTagPart: P1_WP
 --- !u!136 &1527493158
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1683,6 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBodyPartsTransform: {fileID: 1108958998}
+  enemyTagPart: P2_WP
 --- !u!4 &2143973100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6081470830831867213, guid: e803228cc3394e640a3c3621c9a51089,

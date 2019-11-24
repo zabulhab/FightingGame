@@ -5,6 +5,7 @@ using UnityEngine;
 public class bodyCollisionScript : MonoBehaviour
 {
     public GameObject thisBodyPartsTransform;
+    public string enemyTagPart; 
     private Player_Controller playerScript; 
 
     // Start is called before the first frame update
@@ -18,26 +19,34 @@ public class bodyCollisionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("********");
-        Debug.Log(col.transform.tag);
-        /*
-        string tagOfBodyPartCollidedWith = collision.transform.tag;
+        //Debug.Log("********");
+        //Debug.Log(col.transform.tag);
+        
+        string tagOfEnemyPartCollidedWith = col.transform.tag;
         string tagOfThisPartsTransform = thisBodyPartsTransform.tag;
-        Player_Controller enemyPlayerController = collision.gameObject.GetComponent<Player_Controller>();
-        //Debug.Log(enemyPlayerController);
 
-        //Debug.Log(playerScript);
-        //int lastPlayerMove = playerScript.GetRecentMove();
-       
-        if (tagOfBodyPartCollidedWith == "WeakPoint" && tagOfThisPartsTransform == "AttackPoint")
+        Player_Controller enemyPlayerController = col.transform.root.GetComponent<Player_Controller>();
+
+        int lastPlayerMove = playerScript.GetRecentMove();
+        int lastEnemyMove = enemyPlayerController.GetRecentMove();
+
+        if (tagOfEnemyPartCollidedWith == enemyTagPart)
         {
-            Debug.Log(enemyPlayerController);
-
+            //Debug.Log(enemyPlayerController);
+            Debug.Log("Last player move: " + lastPlayerMove);
+            Debug.Log("Last Enemy move: " + lastEnemyMove);
         }
-        else if(tagOfBodyPartCollidedWith == "AttackPoint" && tagOfThisPartsTransform == "WeakPoint")
-        {
 
-        }
-        */
+        /*
+         if (tagOfBodyPartCollidedWith == "WeakPoint" && tagOfThisPartsTransform == "AttackPoint")
+         {
+             Debug.Log(enemyPlayerController);
+
+         }
+         else if(tagOfBodyPartCollidedWith == "AttackPoint" && tagOfThisPartsTransform == "WeakPoint")
+         {
+
+         }
+ */
     }
 }
