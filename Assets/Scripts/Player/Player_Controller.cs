@@ -39,11 +39,18 @@ public class Player_Controller : MonoBehaviour
     private Animator self_animator;
     private List<int> valid_combos = new List<int>(); 
     private string combo_string = "";
+    private int last_used_move = 0;
     private int move = 0;
     private float last_key_pressed_time = 0;
     private bool crouching = false;
 
     /* USER FUNCTIONS */
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public int GetRecentMove()
+    {
+        return last_used_move;
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// BASIC MOVES
     private void Movement()
@@ -67,24 +74,28 @@ public class Player_Controller : MonoBehaviour
 
     private void MoveJump()
     {
+        last_used_move = 1;
         Debug.Log("Jump");
         self_animator.SetBool("jump", true);
     }
 
     private void MoveBlock()
     {
+        last_used_move = 2;
         Debug.Log("Block");
         self_animator.SetBool("block", true);
     }
 
     private void MovePunch()
     {
+        last_used_move = 3;
         Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
+        last_used_move = 4;
         Debug.Log("Kick");
         self_animator.SetBool("kick", true);
     }
@@ -94,6 +105,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Play_Combo(int combo_num)
     {
+        last_used_move = 0;
         Debug.Log("Play_Combo");
         Debug.Log(combo_num);
     }
