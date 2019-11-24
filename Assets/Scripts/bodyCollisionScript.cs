@@ -14,16 +14,13 @@ public class bodyCollisionScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //If the opposing player hits the current players body part
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider col)
     {
+        Debug.Log("********");
+        Debug.Log(col.transform.tag);
+        /*
         string tagOfBodyPartCollidedWith = collision.transform.tag;
         string tagOfThisPartsTransform = thisBodyPartsTransform.tag;
         Player_Controller enemyPlayerController = collision.gameObject.GetComponent<Player_Controller>();
@@ -41,5 +38,6 @@ public class bodyCollisionScript : MonoBehaviour
         {
 
         }
+        */
     }
 }
