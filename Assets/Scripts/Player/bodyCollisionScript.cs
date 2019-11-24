@@ -48,6 +48,7 @@ public class bodyCollisionScript : MonoBehaviour
                 // Self intended to do an attack
                 if (e_move.is_block)
                 {
+                    Debug.Log("~~~~~~~");
                     // Possible attack did not go through, need to check further
                     if (p_move.target_zone == e_move.target_zone)
                     {

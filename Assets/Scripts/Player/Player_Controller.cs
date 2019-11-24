@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
     
     // Turn on to print debug msgs
     public bool DEBUG = false;
+    public bool ALL_MOVES = false;
     [Space(10)]
 
     public string player_num = "";
@@ -109,7 +110,7 @@ public class Player_Controller : MonoBehaviour
 
     private void MovePunch()
     {
-        //Debug.Log("Punch");
+        Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
@@ -213,11 +214,13 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-
     // Returns if "combo_string" is a valid combo
     private Move ValidCombo()
     {
         // A combo is only valid if it exists in "valid_combos" list
+        if (ALL_MOVES)
+            return Moves.all_moves.Find(x => x.combo_string == combo_string);
+
         return Moves.all_moves.Find(x => x.combo_string == combo_string && valid_combos.Exists(y => y == x.move_id));
     }
 
@@ -226,13 +229,13 @@ public class Player_Controller : MonoBehaviour
         // Check combo_string:
         // If valid combo, execute the combo
         Move valid = ValidCombo();
-        if (valid != null)
+        if (valid != null && valid.is_special)
         {
             Play_Combo(valid.move_id);
         }
         // If invalid combo, check the last key,
         // if the last key is a non-lateral movement key, execute it
-        else
+        else if (valid != null)
         {
             char last_key = combo_string[combo_string.Length - 1];
 
@@ -261,7 +264,7 @@ public class Player_Controller : MonoBehaviour
         {
             if (DEBUG)
             {
-                Debug.Log("Combo" + player_num);
+                Debug.Log("Player" + player_num);
                 Debug.Log(combo_string);
             }
             ExecuteCombo();
@@ -327,6 +330,12 @@ public class Player_Controller : MonoBehaviour
             valid_combos = GameManager.GetP2SpecialMoveInts();
         else
             Debug.Log("Invalid player num");
+
+        if (DEBUG)
+        {
+            foreach (int x in valid_combos)
+                Debug.Log("Allowed combo index: " + x);
+        }
     }
 
     private void Update()

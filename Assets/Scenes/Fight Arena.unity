@@ -539,60 +539,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 104747490628298673, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: IsPlayer1
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 104747490628298673, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: healthBarUIUpdater
-      value: 
-      objectReference: {fileID: 2476099758894405795}
     - target: {fileID: 104747490628298687, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
         type: 3}
       propertyPath: player_num
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 104747490482930828, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+    - target: {fileID: 104747490628298687, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
         type: 3}
-      propertyPath: m_TagString
-      value: P2_WP
-      objectReference: {fileID: 0}
-    - target: {fileID: 104747490490803118, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_WP
-      objectReference: {fileID: 0}
-    - target: {fileID: 104747491746554828, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_WP
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156795376181827923, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_AP
-      objectReference: {fileID: 0}
-    - target: {fileID: 8307023334250529886, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_AP
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784425695267727697, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: enemyTagPart
-      value: P1_WP
-      objectReference: {fileID: 0}
-    - target: {fileID: 969634000069871170, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: enemyTagPart
-      value: P1_WP
-      objectReference: {fileID: 0}
-    - target: {fileID: 104747491155295727, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_WP
+      propertyPath: ALL_MOVES
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 104747490945826464, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
         type: 3}
@@ -604,6 +559,46 @@ PrefabInstance:
       propertyPath: m_TagString
       value: P2_AP
       objectReference: {fileID: 0}
+    - target: {fileID: 104747491155295727, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_WP
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747491746554828, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_WP
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747490482930828, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_WP
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747490490803118, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_WP
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156795376181827923, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_AP
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784425695267727697, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: enemyTagPart
+      value: P1_WP
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307023334250529886, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_AP
+      objectReference: {fileID: 0}
+    - target: {fileID: 969634000069871170, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: enemyTagPart
+      value: P1_WP
+      objectReference: {fileID: 0}
     - target: {fileID: 7720943653972555462, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
         type: 3}
       propertyPath: enemyTagPart
@@ -614,6 +609,16 @@ PrefabInstance:
       propertyPath: enemyTagPart
       value: P1_WP
       objectReference: {fileID: 0}
+    - target: {fileID: 104747490628298673, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: IsPlayer1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747490628298673, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: healthBarUIUpdater
+      value: 
+      objectReference: {fileID: 2476099758894405795}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc29c744b4f12f4ba6f925cd5d709c7, type: 3}
 --- !u!1 &252372915
@@ -1226,6 +1231,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747490628298687, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: DEBUG
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104747490628298687, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
+        type: 3}
+      propertyPath: ALL_MOVES
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 104747490628298673, guid: 6fc29c744b4f12f4ba6f925cd5d709c7,
         type: 3}
