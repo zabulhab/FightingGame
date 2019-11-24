@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private int P1WinCount = 0;
     private int P2WinCount = 0;
 
-    // If 1, P1 lost most recently, if 2, P2 lost most recently
+    // If 1, P1 lost most recently; if 2, P2 lost most recently; if 0, start of bout
     private int MostRecentLoser = 0;
 
     // Which round are we on? Starts at 1 by default
@@ -36,12 +36,12 @@ public class GameManager : MonoBehaviour
     private List<bool> AllAllowedMoves;
 
     /// <summary>
-    /// The moves P1 selected for this round
+    /// The moves P1 has available for this round
     /// </summary>
     private List<bool> P1CurRoundMoves;
 
     /// <summary>
-    /// THe moves P2 selected for this round
+    /// THe moves P2 has available for this round
     /// </summary>
     private List<bool> P2CurRoundMoves;
 
@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void EnterMoveSelectScreen()
     {
-        Debug.Log("FIRST FIGHT");
         SceneManager.LoadScene(instance.SelectScreenIdx);
     }
 
@@ -249,6 +248,22 @@ public class GameManager : MonoBehaviour
     public static int GetCurRoundNum()
     {
         return instance.currentRoundNum;
+    }
+
+    public static int GetLastWinner()
+    {
+        if (instance.MostRecentLoser == 0)
+        {
+            return 0;
+        }
+        else if (instance.MostRecentLoser == 1)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
     }
 
     public static void PauseGame()
