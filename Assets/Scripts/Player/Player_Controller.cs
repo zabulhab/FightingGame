@@ -72,7 +72,7 @@ public class Player_Controller : MonoBehaviour
         // Crouch
         if (crouching)
         {
-            move_mult = crouch_mult;
+            move_mult = crouch_mult; // Reduce movement while crouching
             self_animator.SetBool("crouch", true);
         }
         else
@@ -83,7 +83,7 @@ public class Player_Controller : MonoBehaviour
         // Block
         if (blocking)
         {
-            move_mult = 0;
+            move_mult = 0; // Dont move while blocking
             self_animator.SetBool("block", true);
         }
         else
