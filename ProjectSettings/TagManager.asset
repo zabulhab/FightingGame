@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - P1_AP
+  - P1_WP
+  - P2_AP
+  - P2_WP
   layers:
   - Default
   - TransparentFX
