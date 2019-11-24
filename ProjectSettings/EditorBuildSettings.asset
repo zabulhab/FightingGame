@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ZenaLab/MainMenuTest.unity
     guid: 89de9422264174fb8b16cfd1c9d31945
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AbilitySelectScreen.unity
     guid: 379ec6d880f92aa489b5ccb51426ae13
   - enabled: 1
