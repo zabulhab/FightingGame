@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bodyCollisionScript : MonoBehaviour
 {
+    public bool DEBUG = false;
     public GameObject thisBodyPartsTransform;
     public string enemyTagPart; 
     private Player_Controller playerScript; 
@@ -12,7 +13,6 @@ public class bodyCollisionScript : MonoBehaviour
     void Awake()
     {
         playerScript = thisBodyPartsTransform.GetComponent<Player_Controller>();
-
     }
 
     //If the opposing player hits the current players body part
@@ -33,8 +33,11 @@ public class bodyCollisionScript : MonoBehaviour
         if (tagOfEnemyPartCollidedWith == enemyTagPart)
         {
             //Debug.Log(enemyPlayerController);
-            Debug.Log("Last player move: " + lastPlayerMove);
-            Debug.Log("Last Enemy move: " + lastEnemyMove);
+            if (DEBUG)
+            {
+                Debug.Log("Last player move: " + lastPlayerMove);
+                Debug.Log("Last Enemy move: " + lastEnemyMove);
+            }
         }
 
         /*

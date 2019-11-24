@@ -12,7 +12,7 @@ public class Player_Controller : MonoBehaviour
 
     public string player_num = "";
     public float move_speed = 20f;
-    public float crouch_mult = 0.5f;
+    public float crouch_mult = 0f;
     public float combo_wait_time_sec = 0.15f;
 
     /* PRIVATE */
@@ -44,6 +44,7 @@ public class Player_Controller : MonoBehaviour
     private int move = 0;
     private float last_key_pressed_time = 0;
     private bool crouching = false;
+    private bool blocking = false;
 
     /* USER FUNCTIONS */
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,6 +69,16 @@ public class Player_Controller : MonoBehaviour
             self_animator.SetBool("crouch", false);
         }
 
+        // Block
+        if (blocking)
+        {
+            self_animator.SetBool("block", true);
+        }
+        else
+        {
+            self_animator.SetBool("block", false);
+        }
+
         // Lateral
         self_rbody.AddForce(new Vector3(move_speed * move * Time.fixedDeltaTime * 100 * move_mult, 0));
         self_animator.SetFloat("move_spd", Mathf.Abs(move));
@@ -80,23 +91,16 @@ public class Player_Controller : MonoBehaviour
         self_animator.SetBool("jump", true);
     }
 
-    private void MoveBlock()
-    {
-        last_used_move = 2;
-        //Debug.Log("Block");
-        self_animator.SetBool("block", true);
-    }
-
     private void MovePunch()
     {
-        last_used_move = 3;
+        last_used_move = 2;
         //Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
-        last_used_move = 4;
+        last_used_move = 3;
         //Debug.Log("Kick");
         self_animator.SetBool("kick", true);
     }
@@ -146,6 +150,16 @@ public class Player_Controller : MonoBehaviour
         else if (Input.GetButtonUp("Crouch" + player_num))
         {
             crouching = false;
+        }
+
+        // Get block
+        if (Input.GetButtonDown("Block" + player_num))
+        {
+            blocking = true;
+        }
+        else if (Input.GetButtonUp("Block" + player_num))
+        {
+            blocking = false;
         }
 
         // Get combo input
@@ -213,9 +227,6 @@ public class Player_Controller : MonoBehaviour
             {
                 case '^':
                     MoveJump();
-                    break;
-                case 'b':
-                    MoveBlock();
                     break;
                 case 'p':
                     MovePunch();

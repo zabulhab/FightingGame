@@ -486,7 +486,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 74.874, y: -38.24, z: -117.078}
 --- !u!1 &483835472
 GameObject:
@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b56615bb4fd849be948ef3251b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG: 0
   thisBodyPartsTransform: {fileID: 1108958998}
   enemyTagPart: P2_WP
 --- !u!1 &1056337566
@@ -733,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b56615bb4fd849be948ef3251b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG: 0
   thisBodyPartsTransform: {fileID: 1361227655}
   enemyTagPart: P1_WP
 --- !u!1 &1108958998 stripped
@@ -756,7 +758,7 @@ MonoBehaviour:
   DEBUG: 0
   player_num: 1
   move_speed: 20
-  crouch_mult: 0.5
+  crouch_mult: 0
   combo_wait_time_sec: 0.15
 --- !u!54 &1108959002
 Rigidbody:
@@ -998,7 +1000,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e803228cc3394e640a3c3621c9a51089,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e803228cc3394e640a3c3621c9a51089,
         type: 3}
@@ -1084,7 +1086,7 @@ MonoBehaviour:
   DEBUG: 0
   player_num: 2
   move_speed: 20
-  crouch_mult: 0.5
+  crouch_mult: 0
   combo_wait_time_sec: 0.15
 --- !u!54 &1361227663
 Rigidbody:
@@ -1259,6 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b56615bb4fd849be948ef3251b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG: 0
   thisBodyPartsTransform: {fileID: 1361227655}
   enemyTagPart: P1_WP
 --- !u!136 &1527493158
@@ -1379,7 +1382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1558732428 stripped
 Transform:
@@ -1593,7 +1596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2039311023
 Rigidbody:
@@ -1685,6 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b56615bb4fd849be948ef3251b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG: 0
   thisBodyPartsTransform: {fileID: 1108958998}
   enemyTagPart: P2_WP
 --- !u!4 &2143973100 stripped
