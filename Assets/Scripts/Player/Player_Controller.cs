@@ -100,7 +100,6 @@ public class Player_Controller : MonoBehaviour
     {
         if (can_jump)
         {
-            last_used_move = 0;
             can_jump = false;
             //Debug.Log("Jump");
             self_rbody.AddForce(new Vector3(0, jump_force));
@@ -110,14 +109,12 @@ public class Player_Controller : MonoBehaviour
 
     private void MovePunch()
     {
-        last_used_move = 0;
         //Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
-        last_used_move = 0;
         //Debug.Log("Kick");
         self_animator.SetBool("kick", true);
     }
@@ -127,7 +124,6 @@ public class Player_Controller : MonoBehaviour
 
     private void Play_Combo(int combo_num)
     {
-        last_used_move = 0;
         //Debug.Log("Play_Combo");
         //Debug.Log(combo_num);
     }
@@ -273,6 +269,45 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    private void UpdateRecentMove()
+    {
+        // Update last_used_move based on the current state of the animator
+        if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Block_High"))
+            last_used_move = 15;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Block_Low"))
+            last_used_move = 16;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_High"))
+            last_used_move = 11;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Low"))
+            last_used_move = 12;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_High"))
+            last_used_move = 13;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_Low"))
+            last_used_move = 14;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_1"))
+            last_used_move = 1;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_2"))
+            last_used_move = 2;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_3"))
+            last_used_move = 3;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_4"))
+            last_used_move = 4;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_5"))
+            last_used_move = 5;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_6"))
+            last_used_move = 6;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_7"))
+            last_used_move = 7;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_8"))
+            last_used_move = 8;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_9"))
+            last_used_move = 9;
+        else if (self_animator.GetCurrentAnimatorStateInfo(0).IsName("Special_10"))
+            last_used_move = 10;
+        else
+            last_used_move = 0;
+    }
+
     /* UNITY FUNCTIONS */
 
     private void Awake()
@@ -284,10 +319,14 @@ public class Player_Controller : MonoBehaviour
     private void Start()
     {
         // Get valid combos from GameManager and store into local list
-        // TODO
 
         /* Combos */
-        //valid_combos.Add(new Combo(Combo1, "<><", 0));
+        if (player_num == "1")
+            valid_combos = GameManager.GetP1SpecialMoveInts();
+        else if (player_num == "2")
+            valid_combos = GameManager.GetP2SpecialMoveInts();
+        else
+            Debug.Log("Invalid player num");
     }
 
     private void Update()
@@ -296,6 +335,9 @@ public class Player_Controller : MonoBehaviour
         PollInput();
 
         ProcessCombos();
+
+        // Based on current animation
+        UpdateRecentMove();
     }
 
     private void FixedUpdate()
