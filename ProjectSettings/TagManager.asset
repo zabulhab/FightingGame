@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - AttackPoint
-  - WeakPoint
+  - P1_AP
+  - P1_WP
+  - P2_AP
+  - P2_WP
   layers:
   - Default
   - TransparentFX
