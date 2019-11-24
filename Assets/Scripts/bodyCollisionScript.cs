@@ -55,10 +55,10 @@ public class bodyCollisionScript : MonoBehaviour
                         return;
                     }
                 }
-                
+
                 // Otherwise, process the attack
                 // TODO: Handle damage transfer using p_move.damage
-
+                col.transform.root.GetComponent<Health>().TakeDamage(p_move.damage);
             }
         }
 

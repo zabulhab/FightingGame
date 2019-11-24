@@ -24,7 +24,7 @@ public static class Moves
         move1.move_id = 0;
         move1.target_zone = 0;
         move1.damage = 10;
-        move1.is_attack = false;
+        move1.is_attack = true;
         move1.is_block = false;
         all_moves.Add(move1);
     }

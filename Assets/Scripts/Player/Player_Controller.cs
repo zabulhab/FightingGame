@@ -86,21 +86,21 @@ public class Player_Controller : MonoBehaviour
 
     private void MoveJump()
     {
-        last_used_move = 1;
+        last_used_move = 0;
         //Debug.Log("Jump");
         self_animator.SetBool("jump", true);
     }
 
     private void MovePunch()
     {
-        last_used_move = 2;
+        last_used_move = 0;
         //Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
-        last_used_move = 3;
+        last_used_move = 0;
         //Debug.Log("Kick");
         self_animator.SetBool("kick", true);
     }
