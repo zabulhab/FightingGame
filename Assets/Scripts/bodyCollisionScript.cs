@@ -38,6 +38,28 @@ public class bodyCollisionScript : MonoBehaviour
                 Debug.Log("Last player move: " + lastPlayerMove);
                 Debug.Log("Last Enemy move: " + lastEnemyMove);
             }
+
+            // Convert plays move nums into actual moves
+            Move p_move = Moves.all_moves[lastPlayerMove];
+            Move e_move = Moves.all_moves[lastEnemyMove];
+
+            if (p_move.is_attack)
+            {
+                // Self intended to do an attack
+                if (e_move.is_block)
+                {
+                    // Possible attack did not go through, need to check further
+                    if (p_move.target_zone == e_move.target_zone)
+                    {
+                        // Attack was successfully blocked, can return
+                        return;
+                    }
+                }
+                
+                // Otherwise, process the attack
+                // TODO: Handle damage transfer using p_move.damage
+
+            }
         }
 
         /*
