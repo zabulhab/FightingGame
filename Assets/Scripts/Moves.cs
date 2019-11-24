@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class  Moves
+public class Move
 {
-    public class Move
-    {
-        public static string combo_string;
-        public static int move_id;
-        public static int target_zone; // 0: N/A, 1: HIGH, 2: LOW
-        public static bool is_attack;
-        public static bool is_block;
+    public string combo_string;
+    public int move_id;
+    public int target_zone; // 0: N/A, 1: HIGH, 2: LOW
+    public int damage;
+    public bool is_attack;
+    public bool is_block;
+}
 
-        public Move(string cs, int mi, int tz, bool ia, bool ib)
-        {
-            combo_string = cs;
-            move_id = mi;
-            target_zone = tz;
-            is_attack = ia;
-            is_block = ib;
-        }
-    }
-
+public static class Moves
+{
     public static List<Move> all_moves = new List<Move>();
 
     static Moves()
     {
-        all_moves.Add(new Move("", 0, 0, false, false ));
+        // Move 1
+        Move move1 = new Move();
+        move1.combo_string = "";
+        move1.move_id = 0;
+        move1.target_zone = 0;
+        move1.damage = 10;
+        move1.is_attack = false;
+        move1.is_block = false;
+        all_moves.Add(move1);
     }
 }

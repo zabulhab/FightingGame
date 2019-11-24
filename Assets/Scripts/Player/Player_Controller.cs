@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using static Moves;
-
 public class Player_Controller : MonoBehaviour
 {
     /* INSPECTOR */
@@ -18,6 +16,7 @@ public class Player_Controller : MonoBehaviour
 
     /* PRIVATE */
 
+    /*
     // Allows for combo behavior functions to be easily tied in with the other fields of the combo such as ID and combo strings
     private delegate void Combo_Delegate();
 
@@ -34,10 +33,11 @@ public class Player_Controller : MonoBehaviour
             combo_id = ci;
         }
     }
+    */
 
     private Rigidbody self_rbody;
     private Animator self_animator;
-    private List<Combo> valid_combos = new List<Combo>(); 
+    private List<int> valid_combos = new List<int>(); 
     private string combo_string = "";
     private int move = 0;
     private float last_key_pressed_time = 0;
@@ -92,9 +92,10 @@ public class Player_Controller : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// Combos
 
-    private void Combo1()
+    private void Play_Combo(int combo_num)
     {
-        Debug.Log("Combo1");
+        Debug.Log("Play_Combo");
+        Debug.Log(combo_num);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -174,20 +175,20 @@ public class Player_Controller : MonoBehaviour
 
 
     // Returns if "combo_string" is a valid combo
-    private Combo ValidCombo()
+    private Move ValidCombo()
     {
         // A combo is only valid if it exists in "valid_combos" list
-        return valid_combos.Find(x => x.combo_str == combo_string);
+        return Moves.all_moves.Find(x => x.combo_string == combo_string && valid_combos.Exists(y => y == x.move_id));
     }
 
     private void ExecuteCombo()
     {
         // Check combo_string:
         // If valid combo, execute the combo
-        Combo valid = ValidCombo();
+        Move valid = ValidCombo();
         if (valid != null)
         {
-            valid.combo_behavior();
+            Play_Combo(valid.move_id);
         }
         // If invalid combo, check the last key,
         // if the last key is a non-lateral movement key, execute it
@@ -245,7 +246,7 @@ public class Player_Controller : MonoBehaviour
         // TODO
 
         /* Combos */
-        valid_combos.Add(new Combo(Combo1, "<><", 0));
+        //valid_combos.Add(new Combo(Combo1, "<><", 0));
     }
 
     private void Update()
