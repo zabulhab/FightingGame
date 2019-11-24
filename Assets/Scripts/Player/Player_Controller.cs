@@ -10,6 +10,7 @@ public class Player_Controller : MonoBehaviour
     public bool DEBUG = false;
     [Space(10)]
 
+    public string player_num = "";
     public float move_speed = 20f;
     public float crouch_mult = 0.5f;
     public float combo_wait_time_sec = 0.15f;
@@ -75,28 +76,28 @@ public class Player_Controller : MonoBehaviour
     private void MoveJump()
     {
         last_used_move = 1;
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         self_animator.SetBool("jump", true);
     }
 
     private void MoveBlock()
     {
         last_used_move = 2;
-        Debug.Log("Block");
+        //Debug.Log("Block");
         self_animator.SetBool("block", true);
     }
 
     private void MovePunch()
     {
         last_used_move = 3;
-        Debug.Log("Punch");
+        //Debug.Log("Punch");
         self_animator.SetBool("punch", true);
     }
 
     private void MoveKick()
     {
         last_used_move = 4;
-        Debug.Log("Kick");
+        //Debug.Log("Kick");
         self_animator.SetBool("kick", true);
     }
 
@@ -106,8 +107,8 @@ public class Player_Controller : MonoBehaviour
     private void Play_Combo(int combo_num)
     {
         last_used_move = 0;
-        Debug.Log("Play_Combo");
-        Debug.Log(combo_num);
+        //Debug.Log("Play_Combo");
+        //Debug.Log(combo_num);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -120,15 +121,15 @@ public class Player_Controller : MonoBehaviour
     private void PollInput()
     {
         // Get lateral movement input
-        if (Input.GetButton("Forward") && Input.GetButton("Back"))
+        if (Input.GetButton("Forward" + player_num) && Input.GetButton("Back" + player_num))
         {
             move = 0;
         }
-        else if (Input.GetButton("Forward"))
+        else if (Input.GetButton("Forward" + player_num))
         {
             move = 1;
         }
-        else if (Input.GetButton("Back"))
+        else if (Input.GetButton("Back" + player_num))
         {
             move = -1;
         }
@@ -138,47 +139,47 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Get crouch
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Crouch" + player_num))
         {
             crouching = true;
         }
-        else if (Input.GetButtonUp("Crouch"))
+        else if (Input.GetButtonUp("Crouch" + player_num))
         {
             crouching = false;
         }
 
         // Get combo input
-        if (Input.GetButtonDown("Forward"))
+        if (Input.GetButtonDown("Forward" + player_num))
         {
             ComboKeyPressed();
             combo_string += ">";
         }
-        else if (Input.GetButtonDown("Back"))
+        else if (Input.GetButtonDown("Back" + player_num))
         {
             ComboKeyPressed();
             combo_string += "<";
         }
-        else if (Input.GetButtonDown("Jump"))
+        else if (Input.GetButtonDown("Jump" + player_num))
         {
             ComboKeyPressed();
             combo_string += "^";
         }
-        else if (Input.GetButtonDown("Crouch"))
+        else if (Input.GetButtonDown("Crouch" + player_num))
         {
             ComboKeyPressed();
             combo_string += "v";
         }
-        else if (Input.GetButtonDown("Block"))
+        else if (Input.GetButtonDown("Block" + player_num))
         {
             ComboKeyPressed();
             combo_string += "b";
         }
-        else if (Input.GetButtonDown("Punch"))
+        else if (Input.GetButtonDown("Punch" + player_num))
         {
             ComboKeyPressed();
             combo_string += "p";
         }
-        else if (Input.GetButtonDown("Kick"))
+        else if (Input.GetButtonDown("Kick" + player_num))
         {
             ComboKeyPressed();
             combo_string += "k";
@@ -236,7 +237,7 @@ public class Player_Controller : MonoBehaviour
         {
             if (DEBUG)
             {
-                Debug.Log("Combo");
+                Debug.Log("Combo" + player_num);
                 Debug.Log(combo_string);
             }
             ExecuteCombo();

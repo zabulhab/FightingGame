@@ -5,10 +5,13 @@ using UnityEngine;
 public class bodyCollisionScript : MonoBehaviour
 {
     public GameObject thisBodyPartsTransform;
-    
+    private Player_Controller playerScript; 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        playerScript = thisBodyPartsTransform.GetComponent<Player_Controller>();
+
     }
 
     // Update is called once per frame
@@ -23,15 +26,20 @@ public class bodyCollisionScript : MonoBehaviour
     {
         string tagOfBodyPartCollidedWith = collision.transform.tag;
         string tagOfThisPartsTransform = thisBodyPartsTransform.tag;
+        Player_Controller enemyPlayerController = collision.gameObject.GetComponent<Player_Controller>();
+        //Debug.Log(enemyPlayerController);
 
+        //Debug.Log(playerScript);
+        //int lastPlayerMove = playerScript.GetRecentMove();
+       
         if (tagOfBodyPartCollidedWith == "WeakPoint" && tagOfThisPartsTransform == "AttackPoint")
         {
+            Debug.Log(enemyPlayerController);
 
         }
         else if(tagOfBodyPartCollidedWith == "AttackPoint" && tagOfThisPartsTransform == "WeakPoint")
         {
 
         }
-        
     }
 }
