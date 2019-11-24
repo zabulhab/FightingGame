@@ -8,6 +8,7 @@ TagManager:
   - P1_WP
   - P2_AP
   - P2_WP
+  - Ground
   layers:
   - Default
   - TransparentFX

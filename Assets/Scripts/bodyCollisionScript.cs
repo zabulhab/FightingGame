@@ -25,13 +25,13 @@ public class bodyCollisionScript : MonoBehaviour
         string tagOfEnemyPartCollidedWith = col.transform.tag;
         string tagOfThisPartsTransform = thisBodyPartsTransform.tag;
 
-        Player_Controller enemyPlayerController = col.transform.root.GetComponent<Player_Controller>();
-
-        int lastPlayerMove = playerScript.GetRecentMove();
-        int lastEnemyMove = enemyPlayerController.GetRecentMove();
-
         if (tagOfEnemyPartCollidedWith == enemyTagPart)
         {
+            Player_Controller enemyPlayerController = col.transform.root.GetComponent<Player_Controller>();
+
+            int lastPlayerMove = playerScript.GetRecentMove();
+            int lastEnemyMove = enemyPlayerController.GetRecentMove();
+
             //Debug.Log(enemyPlayerController);
             if (DEBUG)
             {
