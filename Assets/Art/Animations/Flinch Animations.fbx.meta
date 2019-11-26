@@ -1,110 +1,24 @@
 fileFormatVersion: 2
-guid: e803228cc3394e640a3c3621c9a51089
+guid: 6b91d81cb392bc14eb13ec5165d6a75c
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: -6420400080808513408
-    second: m_ca01_skeleton|Jumping Jacks
+      74: -860562435916321980
+    second: m_ca01_skeleton|Crouch Flinch
   - first:
-      74: 8420483702419008458
-    second: m_ca01_skeleton|Block Low
+      74: 3335356833630757476
+    second: m_ca01_skeleton|Flinch
   - first:
-      74: 3002739468564753192
-    second: m_ca01_skeleton|BlockHigh
+      74: -4771457863640700371
+    second: m_ca01_skeleton|Flinch Block High
   - first:
-      74: -5940339831058264250
-    second: m_ca01_skeleton|Crouch
+      74: 567613282958649971
+    second: m_ca01_skeleton|Flinch Block Low
   - first:
-      74: -224378828465369513
-    second: m_ca01_skeleton|Fighting Stance
-  - first:
-      74: -7107943685402362376
-    second: m_ca01_skeleton|Jump
-  - first:
-      74: -1904961277029808255
-    second: m_ca01_skeleton|Walk
-  - first:
-      74: 6291341225803050112
-    second: m_ca01_skeleton|Leg Check
-  - first:
-      74: -1286362413008562902
-    second: m_ca01_skeleton|Roundhouse
-  - first:
-      74: 9063403617706017110
-    second: m_ca01_skeleton|Stomp
-  - first:
-      74: 3444401339733021306
-    second: m_ca01_skeleton|Sweep
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Belt Buckle.001
-    second: {fileID: 8411576486052335040, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Belt.001
-    second: {fileID: 6724429668160886465, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boot Straps.001
-    second: {fileID: 36692278922642227, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Halo.001
-    second: {fileID: 2554708172668568881, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Harness.001
-    second: {fileID: -2356527901718980236, guid: 847a2625acc58bc4bb702c68c27c878a,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MBlab_cornea.003
-    second: {fileID: 2100000, guid: e6c0d933a271dda469b920828ebae59a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MBlab_human_skin.002
-    second: {fileID: 2100000, guid: 8618ad499e9facd49b1f986fc5c6c192, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mask Metal.001
-    second: {fileID: -3232588489946476775, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pants.001
-    second: {fileID: 3149442276900985895, guid: 92c879c4c0eee8d439955f5342a4ad8b,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pauldron Metal.001
-    second: {fileID: 2123302067646935403, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Vambrace.001
-    second: {fileID: 2123302067646935403, guid: cc094a048b56a6c41b7323196922c89f,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: VambraceBands.001
-    second: {fileID: 36692278922642227, guid: cc094a048b56a6c41b7323196922c89f, type: 3}
+      74: -3894090759460400755
+    second: m_ca01_skeleton|Jumping Flinch
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -133,11 +47,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: m_ca01_skeleton|Jumping Jacks
-      takeName: m_ca01_skeleton|Jumping Jacks
+      name: m_ca01_skeleton|Crouch Flinch
+      takeName: m_ca01_skeleton|Crouch Flinch
       internalID: 0
       firstFrame: 0
-      lastFrame: 239
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -162,11 +76,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: m_ca01_skeleton|Block Low
-      takeName: m_ca01_skeleton|Block Low
+      name: m_ca01_skeleton|Flinch
+      takeName: m_ca01_skeleton|Flinch
       internalID: 0
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -191,11 +105,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: m_ca01_skeleton|BlockHigh
-      takeName: m_ca01_skeleton|BlockHigh
+      name: m_ca01_skeleton|Flinch Block High
+      takeName: m_ca01_skeleton|Flinch Block High
       internalID: 0
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -220,11 +134,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: m_ca01_skeleton|Crouch
-      takeName: m_ca01_skeleton|Crouch
+      name: m_ca01_skeleton|Flinch Block Low
+      takeName: m_ca01_skeleton|Flinch Block Low
       internalID: 0
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -249,11 +163,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: m_ca01_skeleton|Fighting Stance
-      takeName: m_ca01_skeleton|Fighting Stance
+      name: m_ca01_skeleton|Jumping Flinch
+      takeName: m_ca01_skeleton|Jumping Flinch
       internalID: 0
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -263,180 +177,6 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Jump
-      takeName: m_ca01_skeleton|Jump
-      internalID: 0
-      firstFrame: 11
-      lastFrame: 21
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Walk
-      takeName: m_ca01_skeleton|Walk
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 39
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Leg Check
-      takeName: m_ca01_skeleton|Leg Check
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 15
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Roundhouse
-      takeName: m_ca01_skeleton|Roundhouse
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Stomp
-      takeName: m_ca01_skeleton|Stomp
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 28
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: m_ca01_skeleton|Sweep
-      takeName: m_ca01_skeleton|Sweep
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
@@ -488,8 +228,8 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
-  copyAvatar: 0
+  importAnimation: 1
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -1535,7 +1275,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e803228cc3394e640a3c3621c9a51089,
+    type: 3}
   animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
