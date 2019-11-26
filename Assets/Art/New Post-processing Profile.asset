@@ -18,13 +18,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.25
+    value: 0.56
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.73
   softKnee:
     overrideState: 1
-    value: 0.79
+    value: 1
   clamp:
     overrideState: 1
     value: 65472
@@ -36,7 +36,7 @@ MonoBehaviour:
     value: -0.06
   color:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 0.0055459356, g: 0, b: 1.4142135, a: 1}
   fastMode:
     overrideState: 1
     value: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 12.38
+    value: 13.52
 --- !u!114 &-4611599872065383118
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -111,7 +111,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.23
+    value: 0.253
   smoothness:
     overrideState: 1
     value: 0.628
@@ -146,10 +146,10 @@ MonoBehaviour:
     value: 1
   colored:
     overrideState: 1
-    value: 0
+    value: 1
   intensity:
     overrideState: 1
-    value: 0.106
+    value: 0.21
   size:
     overrideState: 1
     value: 0.42
@@ -235,7 +235,7 @@ MonoBehaviour:
     value: 2
   externalLut:
     overrideState: 1
-    value: {fileID: 11700000, guid: c7c30d12cb2ffe94d85a48c30706515a, type: 2}
+    value: {fileID: 11700000, guid: 826c51aa2132cf748b289510207b6de9, type: 2}
     defaultState: 1
   tonemapper:
     overrideState: 0
@@ -1543,16 +1543,16 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 2.31
+    value: 6.6
   aperture:
     overrideState: 1
-    value: 4.3
+    value: 7.3
   focalLength:
     overrideState: 1
-    value: 38
+    value: 62
   kernelSize:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
 --- !u!114 &1999545825653569769
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1641,15 +1641,15 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   spectralLut:
-    overrideState: 1
+    overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.1
+    value: 0.145
   fastMode:
     overrideState: 1
-    value: 1
+    value: 0
 --- !u!114 &6707172198070815611
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1662,13 +1662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
   m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   preset:
-    overrideState: 0
-    value: 2
+    overrideState: 1
+    value: 3
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -1679,11 +1679,11 @@ MonoBehaviour:
     overrideState: 0
     value: 8
   maximumMarchDistance:
-    overrideState: 0
+    overrideState: 1
     value: 100
   distanceFade:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
   vignette:
-    overrideState: 0
+    overrideState: 1
     value: 0.5

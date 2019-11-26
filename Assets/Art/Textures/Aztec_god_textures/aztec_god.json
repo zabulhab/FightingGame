@@ -1,0 +1,106 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                },
+                "Subsurface Scattering Parameters": {
+                    "sssColor": [
+                        0.7009999752044678,
+                        0.3009999990463257,
+                        0.3050000071525574
+                    ],
+                    "sssEnabled": true,
+                    "sssScale": 0.5,
+                    "sssType": 1
+                }
+            },
+            "shader": "pbr-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "Beads": {
+            "shader": "Main shader"
+        },
+        "Belt": {
+            "shader": "Main shader"
+        },
+        "Face": {
+            "shader": "Main shader"
+        },
+        "Flat": {
+            "shader": "Main shader"
+        },
+        "Gem": {
+            "shader": "Main shader"
+        },
+        "Hat": {
+            "shader": "Main shader"
+        },
+        "Leg_band": {
+            "shader": "Main shader"
+        },
+        "Lips": {
+            "shader": "Main shader"
+        },
+        "Material": {
+            "shader": "Main shader"
+        },
+        "Material.001": {
+            "shader": "Main shader"
+        },
+        "Shoulder": {
+            "shader": "Main shader"
+        },
+        "Sock": {
+            "shader": "Main shader"
+        },
+        "Spike": {
+            "shader": "Main shader"
+        },
+        "Waist": {
+            "shader": "Main shader"
+        },
+        "amulet": {
+            "shader": "Main shader"
+        },
+        "band": {
+            "shader": "Main shader"
+        },
+        "fur": {
+            "shader": "Main shader"
+        },
+        "juul": {
+            "shader": "Main shader"
+        },
+        "straps": {
+            "shader": "Main shader"
+        },
+        "string": {
+            "shader": "Main shader"
+        },
+        "wrist_main": {
+            "shader": "Main shader"
+        },
+        "wrist_rim": {
+            "shader": "Main shader"
+        },
+        "wrist_spike": {
+            "shader": "Main shader"
+        }
+    }
+}
